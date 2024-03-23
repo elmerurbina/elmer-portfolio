@@ -139,8 +139,9 @@ def home():
                     font-size: 20px;
                     color: white;
                 }
- .dropdown #servicesDropdownContent,
-                .dropdown #contactDropdownContent {
+                .dropdown #servicesDropdownContent,
+                .dropdown #contactDropdownContent,
+                .dropdown #languagesDropdownContent {
                     display: none;
                     position: absolute;
                     background-color: #1D4E8F;
@@ -151,7 +152,8 @@ def home():
                 }
 
                 .dropdown #servicesDropdownContent a,
-                .dropdown #contactDropdownContent a {
+                .dropdown #contactDropdownContent a,
+                .dropdown #languagesDropdownContent a {
                     color: white;
                     padding: 12px 16px;
                     text-decoration: none;
@@ -159,13 +161,30 @@ def home():
                 }
 
                 .dropdown #servicesDropdownContent a:hover,
-                .dropdown #contactDropdownContent a:hover {
+                .dropdown #contactDropdownContent a:hover,
+                .dropdown #languagesDropdownContent a:hover {
                     background-color: #378CE7;
                 }
 
                 .show {
                     display: block;
                 }
+                
+                .tooltip {
+                        display: none;
+                        position: absolute;
+                        background-color: #333;
+                        color: white;
+                        padding: 5px;
+                        border-radius: 5px;
+                        z-index: 1;
+                }
+
+
+              a:hover + .tooltip {
+              display: block;
+               }
+
                 
                
                  @media only screen and (max-width: 600px) {
@@ -178,23 +197,32 @@ def home():
         </head>
         <body>
             <div class="menu">
-                <div class="dropdown">
-                    <button onclick="toggleServices()">Services ^</button>
-                    <div id="servicesDropdownContent">
-                        <!-- Add services dropdown options here -->
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button onclick="toggleContact()">Contact ^</button>
-                    <div id="contactDropdownContent">
-                        <a href="https://www.linkedin.com/in/elmer-urbina-meneses-290a3b208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
-                        <a href="mailto:elmerurbina570@gmail.com">Email</a>
-                        <a href="https://github.com/elmerurbina">GitHub</a>
-                         <a href="https://t.me/elmerurbina">Telegram</a>
-                    </div>
-                </div>
-            </div>
-
+     <div class="dropdown">
+        <button onclick="toggleServices()">Services ^</button>
+        <div id="servicesDropdownContent">
+            <a href="#" onmouseover="showTooltip('webDevelopmentTooltip')" onmouseout="hideTooltip('webDevelopmentTooltip')">Web Development</a>
+            <span id="webDevelopmentTooltip" class="tooltip">Server Flask / Django | Backend Python</span>
+            <a href="#">Automation Process with Python</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleContact()">Contact ^</button>
+        <div id="contactDropdownContent">
+            <a href="https://www.linkedin.com/in/elmer-urbina-meneses-290a3b208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
+            <a href="mailto:elmerurbina570@gmail.com">Email</a>
+            <a href="https://github.com/elmerurbina">GitHub</a>
+            <a href="https://t.me/elmerurbina">Telegram</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button onclick="toggleLanguages()">Languages ^</button>
+        <div id="languagesDropdownContent">
+            <a href="https://learn.saylor.org/pluginfile.php/1/tool_certificate/issues/1675029197/0045648404EU.pdf">English</a>
+            <a href="#" onmouseover="showTooltip('nativeLanguageTooltip')" onmouseout="hideTooltip('nativeLanguageTooltip')">Spanish</a>
+            <span id="nativeLanguageTooltip" class="tooltip">Native Language</span>
+        </div>
+    </div>
+</div>
 
         
             <div class="container">
@@ -230,7 +258,7 @@ def home():
     <a href="{{ project['link'] }}">Visit Website</a>
     {% endif %}
     {% if project['image'] == 'chat.png' %}
-    <img src="{{ url_for('static', filename=project['image']) }}" alt="Freud IA chat interface" style="display: block; margin: 0 auto; width: 400px; height: auto;">
+    <img src="{{ url_for('static', filename=project['image']) }}" alt="Freud IA chat interface" style="display: block; margin: 0 auto; width: 300px; height: auto;">
     <p style="text-align: center;">As part of the system we have a chatbot which is trained to act as a human psychologist.</p>
     {% endif %}
 </div>

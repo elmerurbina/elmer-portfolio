@@ -1,4 +1,3 @@
-
 function toggleServices() {
     var servicesDropdownContent = document.getElementById("servicesDropdownContent");
     var servicesArrow = document.getElementById("servicesArrow");
@@ -22,5 +21,18 @@ function toggleContact() {
     } else {
         contactDropdownContent.style.display = "block";
         contactArrow.innerHTML = "&#9660;"; // Change to down arrow
+    }
+}
+
+function toggleLanguages() {
+    var languagesDropdownContent = document.getElementById("languagesDropdownContent");
+    var languagesArrow = document.getElementById("languagesArrow");
+
+    if (languagesDropdownContent.style.display === "block") {
+        languagesDropdownContent.style.display = "none";
+        languagesArrow.innerHTML = "&#9650;"; // Change to up arrow
+    } else {
+        languagesDropdownContent.style.display = "block";
+        languagesArrow.innerHTML = "&#9660;"; // Change to down arrow
     }
 }
