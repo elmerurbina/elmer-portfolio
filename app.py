@@ -167,7 +167,7 @@ def home():
                     display: block;
                 }
                 
-                
+               
                  @media only screen and (max-width: 600px) {
         .project img[src*='chat.png'] {
             width: 100px;  
@@ -190,6 +190,7 @@ def home():
                         <a href="https://www.linkedin.com/in/elmer-urbina-meneses-290a3b208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
                         <a href="mailto:elmerurbina570@gmail.com">Email</a>
                         <a href="https://github.com/elmerurbina">GitHub</a>
+                         <a href="https://t.me/elmerurbina">Telegram</a>
                     </div>
                 </div>
             </div>
@@ -216,26 +217,26 @@ def home():
                     {% endfor %}
                 </div>
 
-               <div class="section projects-section">
+                <div class="section projects-section">
     <h2>Projects</h2>
-    {% for project in projects %}
-    <div class="project">
-        <h3>{{ project['name'] }}</h3>
-        <p>{{ project['description'] }}</p>
-        {% if project['link'] %}
-        <a href="{{ project['link'] }}">Visit Website</a>
-        {% endif %}
-        {% if project['image'] %}
-        <img src="{{ url_for('static', filename=project['image']) }}" alt="{{ project['alt'] }}" style="width: 300px; height: auto;">
-        {% endif %}
-        {% if project['image'] == 'logo.jpg' %}
-        <img src="{{ url_for('static', filename='chat.png') }}" alt="Freud IA chat interface" style="display: block; margin: 0 auto; width: 400px; height: auto;">
-        <p style="text-align: center;">As part of the system we have a chatbot which is trained to act as a human psychologist.</p>
-        {% endif %}
-    </div>
-    {% endfor %}
+{% for project in projects %}
+<div class="project">
+    <h3>{{ project['name'] }}</h3>
+    {% if project['image'] == 'logo.jpg' %}
+        <img src="{{ url_for('static', filename=project['image']) }}" alt="{{ project['alt'] }}" style="width: 300px; height: auto; margin-bottom: 20px;">
+    {% endif %}
+    <p>{{ project['description'] }}</p>
+    {% if project['link'] %}
+    <a href="{{ project['link'] }}">Visit Website</a>
+    {% endif %}
+    {% if project['image'] == 'chat.png' %}
+    <img src="{{ url_for('static', filename=project['image']) }}" alt="Freud IA chat interface" style="display: block; margin: 0 auto; width: 400px; height: auto;">
+    <p style="text-align: center;">As part of the system we have a chatbot which is trained to act as a human psychologist.</p>
+    {% endif %}
 </div>
+{% endfor %}
 
+</div>
 
 
                 <div class="footer">
