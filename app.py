@@ -3,7 +3,7 @@ from flask import Flask, render_template_string
 app = Flask(__name__)
 
 
-@app.route('/elmer')
+@app.route('/elmerurbina')
 def home():
     return render_template_string("""
         <!DOCTYPE html>
@@ -66,6 +66,30 @@ def home():
                     background-color: #2A6ABE;
                 }
                 
+                
+                .progress {
+                    background-color: #1A1A1D;
+                    border-radius: 5px;
+                    margin: 10px 0;
+                    overflow: hidden;
+                    width: 100%;
+                }
+
+                .progress-bar {
+                    background-color: #2CEEF0; 
+                    color: #65B741;
+                    width: 50%; 
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    transition: width 1s ease-in-out;
+                }
+
+                .projects-section {
+                    background-color: #1D4E8F;
+                }
+
+                
                  .footer {
                     text-align: center;
                     margin-top: 50px;
@@ -114,8 +138,27 @@ def home():
                 /* Media query for small screens */
                 @media only screen and (max-width: 600px) {
                     .section {
-                        max-width: 90%;
+                        max-width: 75%;
                     }
+                    .section:hover {
+                    max-width: 85%;
+                    
+                    }
+                    p {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    }
+                    
+                    .skills-discipline-section p {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    }
+                    
+                    img.chat {
+                    width: 200px;
+                    height: 100px;
+                    }
+                
                 }
             </style>
         </head>
@@ -127,10 +170,58 @@ def home():
             <p>I am Elmer Urbina Meneses, a passionate programmer currently studying at the <a href="https://uni.edu.ni/#/">National University of Engineering in Nicaragua.</a> My interest in programming stems from the desire to contribute to societal development and bring my ideas to life. I am focused on learning Python and aspiring to become a Python software engineer.</p>
         </div>
 
-        <div class="section skills-discipline-section">
+          <div class="section skills-discipline-section">
             <h2>Skills and Discipline</h2>
-            <p>I possess intermediate skills in Python, and basic knowledge in Java, HTML, CSS, and JavaScript. Additionally, I have intermediate proficiency in Flask and basic understanding of Django. I am dedicated to continuously improving my programming skills and strive to excel in every project I undertake. My disciplined approach to work ensures that I meet deadlines and deliver high-quality results consistently.</p>
+            <div class="skill">
+                <p>Python</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;">60%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>Java</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 40%;">40%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>HTML</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 60%;">88%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>CSS</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 50%;">75%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>JavaScript</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 30%;">30%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>Flask</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;">50%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>Django</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 40%;">40%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <p>Discipline</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;">90%</div>
+                </div>
+            </div>
         </div>
+
 
         <div class="section projects-section">
             <h2>Projects</h2>
@@ -140,7 +231,7 @@ def home():
                     <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Freud IA Logo" style="display: block; margin: 0 auto;" width="200" height="200">
                     <p style="text-align: center;">Freud IA Logo</p>
                     
-                    <img src="{{ url_for('static', filename='chat.png') }}" alt="Freud IA chat interface" style="display: block; margin: 0 auto;" width="400" height="200">
+                    <img class="chat" src="{{ url_for('static', filename='chat.png') }}" alt="Freud IA chat interface" style="display: block; margin: 0 auto;" width="400" height="200">
                     <p style="text-align: center;">As part of the system we have a chatbot which is trained to act as a human psychologist.</p>
                 </li>
                 <li>
@@ -159,9 +250,9 @@ def home():
         </div>
         
          <div class="footer">
-          <p>Second Place Winner in the Web Pages category at Feria Nacional de Ciencia y Tecnologia UNI. Our project is featured as image number 6 in the post. <a href="https://www.facebook.com/share/p/GUBJwDLNdAYXGtab/?mibextid=xfxF2i">See the post</a>. Collaborated with two other team members.</p>
+    <p>Second Place Winner in the Web Pages category at Feria Nacional de Ciencia y Tecnologia UNI. Our project is featured as image number 6 in the post. <a href="https://www.facebook.com/share/p/GUBJwDLNdAYXGtab/?mibextid=xfxF2i">See the post</a>. Collaborated with two other team members. <a href="https://github.com/elmerurbina/automator">See the project on GitHub</a>.</p>
+</div>
 
-        </div>
         
         </body>
         </html>
