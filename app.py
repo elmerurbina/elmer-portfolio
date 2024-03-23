@@ -113,15 +113,89 @@ def home():
                 a:hover {
                     text-decoration: underline;
                 }
+                
+                .menu {
+                    float: right;
+                    margin-right: 50px;
+                }
+
+                .menu a {
+                    color: white;
+                    text-decoration: none;
+                    margin-left: 20px;
+                    display: inline-block; /* Display menu items horizontally */
+                }
+
+                .dropdown {
+                    float: right;
+                    position: relative;
+                    display: inline-block;
+                }
+
+                .dropdown button {
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 20px;
+                    color: white;
+                }
+ .dropdown #servicesDropdownContent,
+                .dropdown #contactDropdownContent {
+                    display: none;
+                    position: absolute;
+                    background-color: #1D4E8F;
+                    min-width: 160px;
+                    z-index: 1;
+                    right: 0;
+                    margin-top: 40px;
+                }
+
+                .dropdown #servicesDropdownContent a,
+                .dropdown #contactDropdownContent a {
+                    color: white;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                .dropdown #servicesDropdownContent a:hover,
+                .dropdown #contactDropdownContent a:hover {
+                    background-color: #378CE7;
+                }
+
+                .show {
+                    display: block;
+                }
+                
+                
                  @media only screen and (max-width: 600px) {
         .project img[src*='chat.png'] {
-            width: 200px;
-        }
-    }
+            width: 100px;  
+                }
+                }
                 
             </style>
         </head>
         <body>
+            <div class="menu">
+                <div class="dropdown">
+                    <button onclick="toggleServices()">Services ^</button>
+                    <div id="servicesDropdownContent">
+                        <!-- Add services dropdown options here -->
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleContact()">Contact ^</button>
+                    <div id="contactDropdownContent">
+                        <a href="https://www.linkedin.com/in/elmer-urbina-meneses-290a3b208?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
+                        <a href="mailto:elmerurbina570@gmail.com">Email</a>
+                        <a href="https://github.com/elmerurbina">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+
+        
             <div class="container">
                 <h1>Elmer Urbina Meneses</h1>
 
@@ -168,6 +242,10 @@ def home():
                     {{ footer_content | safe }}
                 </div>
             </div>
+            
+            <script src="{{ url_for('static', filename='menu.js') }}"></script>
+
+            
         </body>
         </html>
     """, skills=skills, projects=projects, footer_content=footer_content)
